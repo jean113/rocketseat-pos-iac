@@ -37,4 +37,13 @@ jobs:
           aws-region: ${{ secrets.AWS_ACCESS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      - name: Run pullumi
+        id: run-pullumi
+        uses: pulumi/actions@v6
+        with:
+          command: up
+          stack-name: jean113-org/dev
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
       
